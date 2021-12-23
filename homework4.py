@@ -159,7 +159,7 @@ RNA_CODON_TABLE = {
     "GAU":"D", "GAC":"D", "GAA":"E", "GAG":"E",
     "GGU":"G", "GGC":"G", "GGA":"G", "GGG":"G",}
 
-#read input file and generate the mRNA
+
 def processInput():
     inputFile = open('rosalind_splc.txt','r')
     sequences = inputFile.readlines()
