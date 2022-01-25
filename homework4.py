@@ -212,10 +212,10 @@ replaceCodons(processInput())
 from Bio import SeqIO                      
 from math import factorial                 
 sequence = ''                              
-handle = open('rosalind_pmch.txt', 'r')     
-for record in SeqIO.parse(handle, 'fasta'):
+hdl = open('rosalind_pmch.txt', 'r')     
+for record in SeqIO.parse(hdl, 'fasta'):
     sequence = str(record.seq)             
-handle.close()                             
+hdl.close()                             
 
 AU = 0                                     
 GC = 0                                     
@@ -233,10 +233,10 @@ print(matchings)
 
 n = 80
 k = 8
-partial_perm = 1
+prt_perm = 1
 for i in range(k):
-    partial_perm *= (n - i)
-print(partial_perm % 1000000)
+    prt_perm *= (n - i)
+print(prt % 1000000)
 
 #exercise7tree
 
@@ -247,8 +247,8 @@ with open('rosalind_tree.txt', 'r') as f:
         data.append(split_data)                    
 
 n = data[0][0]                                     
-edges = data[1:]                                   
-print(n - len(edges) - 1) 
+edg = data[1:]                                   
+print(n - len(edg) - 1) 
 
 #exercise8long
 
@@ -294,14 +294,14 @@ def find_motif(data, motif):
 
 with open('rosalind_sseq.txt', 'r') as file:
     content = file.read()
-DNAs_number, lines, line_number, DNAs = content.count('>'), content.splitlines(), 0, []
+DNAs_num, lines, line_num, DNAs = content.count('>'), content.splitlines(), 0, []
 for i in range(DNAs_number):
     DNA = ''
-    line_number += 1
-    while lines[line_number][0] != '>':
-        DNA += lines[line_number]
-        line_number += 1
-        if line_number+1 > len(lines):
+    line_num += 1
+    while lines[line_num][0] != '>':
+        DNA += lines[line_num]
+        line_num += 1
+        if line_num+1 > len(lines):
             break
     DNAs.append(DNA)
 
@@ -318,22 +318,22 @@ f.close()
 seq1 = raw_data[0].seq
 seq2 = raw_data[1].seq
 
-transitions = 0
-transversions = float(0)
+trans = 0
+transv = float(0)
 for nt in range(len(seq1)):
     if seq1[nt] == seq2[nt]:
         continue
     elif seq1[nt] == "A" and (seq2[nt] == "C" or seq2[nt] == "T"):
-        transversions += 1
+        transv += 1
     elif seq1[nt] == "G" and (seq2[nt] == "C" or seq2[nt] == "T"):
-        transversions += 1
+        transv += 1
     elif seq1[nt] == "C" and (seq2[nt] == "A" or seq2[nt] == "G"):
-        transversions += 1
+        transv += 1
     elif seq1[nt] == "T" and (seq2[nt] == "A" or seq2[nt] == "G"):
-        transversions += 1
+        transv += 1
     else:
-        transitions += 1
+        trans += 1
 
-print (transitions/transversions)
+print (trans/transv)
 
 
